@@ -50,7 +50,7 @@ const buildTsBunless = () => {
   ];
   return plugins;
 };
-const getBundle = async (input: string, isVUe: boolean = false) => {
+const getBundle = async (input: string, isVUe = false) => {
   return rollup({
     input: input,
     plugins: isVUe ? buildVueBunless() : buildTsBunless()

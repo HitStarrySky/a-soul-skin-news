@@ -9,5 +9,5 @@ export const log = {
   success,
   error,
   warning,
-  info,
+  info
 };

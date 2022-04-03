@@ -84,8 +84,5 @@ module.exports = {
       "ignoreHTMLAttributeValues": true,
       "ignoreHTMLTextContents": true
     }],
-
-    // prettier
-    'prettier/prettier': 'error',
   }
 };
