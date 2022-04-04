@@ -1,7 +1,5 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import path from 'path';
-import vueJsx from '@vitejs/plugin-vue-jsx';
 
 export default defineConfig(() => ({
   build: {
@@ -20,5 +18,5 @@ export default defineConfig(() => ({
   server: {
     port: 8090
   },
-  plugins: [vue(), vueJsx()]
+  plugins: [vue()]
 }));

@@ -8,7 +8,7 @@ const moveDir = async (source: string, target: string) => {
     cwd: source,
     absolute: true,
     onlyFiles: false,
-    deep: 3
+    deep: 8
   });
   file.forEach(async (x) => {
     await copyFile(x, join(target, basename(x)));

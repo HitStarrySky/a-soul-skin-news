@@ -7,11 +7,10 @@ import esbuild from 'rollup-plugin-esbuild';
 import path from 'path';
 import { enterPath } from './utils/path';
 import replace from '@rollup/plugin-replace';
-import css from 'rollup-plugin-css-only';
 import { html } from './plugin/rollup-plugin-html';
+import image from '@rollup/plugin-image';
 const buildVueBunless = () => {
   const plugins = [
-    css({ output: 'bundle.css' }),
     vue({
       isProduction: true
     }),
@@ -34,7 +33,8 @@ const buildVueBunless = () => {
     html({
       template: path.resolve(enterPath, 'source/html/popup.html'),
       style: ['../style/popup.css']
-    })
+    }),
+    image()
   ] as Plugin[];
   return plugins;
 };
