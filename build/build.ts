@@ -5,10 +5,10 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import esbuild from 'rollup-plugin-esbuild';
 import path from 'path';
-import { enterPath } from './utils/path';
+import { enterPath, buildOutpath } from './utils/path';
 import replace from '@rollup/plugin-replace';
 import { html } from './plugin/rollup-plugin-html';
-import image from '@rollup/plugin-image';
+import { image } from './plugin/rollup-plugin-images';
 const buildVueBunless = () => {
   const plugins = [
     vue({
@@ -16,6 +16,13 @@ const buildVueBunless = () => {
     }),
     nodeResolve({
       extensions: ['.mjs', '.js', '.json', '.ts']
+    }),
+    image({
+      output: `${buildOutpath}/assets/images`,
+      extensions: /\.(png|jpg|jpeg|gif|svg)$/,
+      limit: 8192,
+      exclude: 'node_modules/**',
+      hash: true
     }),
     commonjs(),
     esbuild({
@@ -33,8 +40,7 @@ const buildVueBunless = () => {
     html({
       template: path.resolve(enterPath, 'source/html/popup.html'),
       style: ['../style/popup.css']
-    }),
-    image()
+    })
   ] as Plugin[];
   return plugins;
 };

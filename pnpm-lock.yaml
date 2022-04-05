@@ -5,7 +5,6 @@ specifiers:
   '@commitlint/cli': ^8.3.5
   '@commitlint/config-angular': ^8.3.4
   '@rollup/plugin-commonjs': ^21.0.2
-  '@rollup/plugin-image': ^2.1.1
   '@rollup/plugin-node-resolve': ^13.1.3
   '@rollup/plugin-replace': ^4.0.0
   '@types/archiver': ^5.3.1
@@ -33,10 +32,12 @@ specifiers:
   eslint-plugin-prettier: ^4.0.0
   eslint-plugin-vue: ^8.5.0
   fast-glob: ^3.2.11
+  fs-extra: ^10.0.1
   gulp: ^4.0.2
   gulp-autoprefixer: ^8.0.0
   gulp-clean-css: ^4.3.0
   gulp-less: ^5.0.0
+  hasha: ^5.2.2
   husky: ^4.2.5
   less: ^4.1.2
   lint-staged: ^10.3.0
@@ -46,6 +47,7 @@ specifiers:
   rollup: ^2.68.0
   rollup-plugin-css-only: ^3.1.0
   rollup-plugin-esbuild: ^4.8.2
+  rollup-pluginutils: ^2.8.2
   sucrase: ^3.20.3
   tslib: 2.0.0
   typescript: ^4.5.5
@@ -65,7 +67,6 @@ devDependencies:
   '@commitlint/cli': 8.3.6
   '@commitlint/config-angular': 8.3.6
   '@rollup/plugin-commonjs': 21.0.3_rollup@2.70.1
-  '@rollup/plugin-image': 2.1.1_rollup@2.70.1
   '@rollup/plugin-node-resolve': 13.1.3_rollup@2.70.1
   '@rollup/plugin-replace': 4.0.0_rollup@2.70.1
   '@types/archiver': 5.3.1
@@ -92,9 +93,11 @@ devDependencies:
   eslint-plugin-prettier: 4.0.0_b253a92c95b42c3296c682f11cccb3bd
   eslint-plugin-vue: 8.5.0_eslint@8.12.0
   fast-glob: 3.2.11
+  fs-extra: 10.0.1
   gulp: 4.0.2
   gulp-autoprefixer: 8.0.0_gulp@4.0.2
   gulp-less: 5.0.0
+  hasha: 5.2.2
   husky: 4.3.8
   less: 4.1.2
   lint-staged: 10.5.4
@@ -104,6 +107,7 @@ devDependencies:
   rollup: 2.70.1
   rollup-plugin-css-only: 3.1.0_rollup@2.70.1
   rollup-plugin-esbuild: 4.8.2_esbuild@0.14.29+rollup@2.70.1
+  rollup-pluginutils: 2.8.2
   sucrase: 3.20.3
   tslib: 2.0.0
   typescript: 4.6.3
@@ -427,17 +431,6 @@ packages:
       is-reference: 1.2.1
       magic-string: 0.25.9
       resolve: 1.22.0
-      rollup: 2.70.1
-    dev: true
-
-  /@rollup/plugin-image/2.1.1_rollup@2.70.1:
-    resolution: {integrity: sha512-AgP4U85zuQJdUopLUCM+hTf45RepgXeTb8EJsleExVy99dIoYpt3ZlDYJdKmAc2KLkNntCDg6BPJvgJU3uGF+g==}
-    engines: {node: '>= 8.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0 || ^2.0.0
-    dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.70.1
-      mini-svg-data-uri: 1.4.4
       rollup: 2.70.1
     dev: true
 
@@ -2800,6 +2793,10 @@ packages:
     engines: {node: '>=4.0'}
     dev: true
 
+  /estree-walker/0.6.1:
+    resolution: {integrity: sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==}
+    dev: true
+
   /estree-walker/1.0.1:
     resolution: {integrity: sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==}
     dev: true
@@ -3122,6 +3119,15 @@ packages:
 
   /fs-constants/1.0.0:
     resolution: {integrity: sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==}
+    dev: true
+
+  /fs-extra/10.0.1:
+    resolution: {integrity: sha512-NbdoVMZso2Lsrn/QwLXOy6rm0ufY2zEOKCDzJR/0kBsb0E6qed0P3iYK+Ath3BfvXEeu4JhEtXLgILx5psUfag==}
+    engines: {node: '>=12'}
+    dependencies:
+      graceful-fs: 4.2.9
+      jsonfile: 6.1.0
+      universalify: 2.0.0
     dev: true
 
   /fs-extra/8.1.0:
@@ -3567,6 +3573,14 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+    dev: true
+
+  /hasha/5.2.2:
+    resolution: {integrity: sha512-Hrp5vIK/xr5SkeN2onO32H0MgNZ0f17HRNH39WfL0SYUNOTZ5Lz1TJ8Pajo/87dYGEFlLMm7mIc/k/s6Bvz9HQ==}
+    engines: {node: '>=8'}
+    dependencies:
+      is-stream: 2.0.1
+      type-fest: 0.8.1
     dev: true
 
   /he/1.2.0:
@@ -4118,6 +4132,14 @@ packages:
       graceful-fs: 4.2.9
     dev: true
 
+  /jsonfile/6.1.0:
+    resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+    dependencies:
+      universalify: 2.0.0
+    optionalDependencies:
+      graceful-fs: 4.2.9
+    dev: true
+
   /jsonparse/1.3.1:
     resolution: {integrity: sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=}
     engines: {'0': node >= 0.2.0}
@@ -4541,11 +4563,6 @@ packages:
   /min-indent/1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
-    dev: true
-
-  /mini-svg-data-uri/1.4.4:
-    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
-    hasBin: true
     dev: true
 
   /minimatch/3.1.2:
@@ -5557,6 +5574,12 @@ packages:
       - supports-color
     dev: true
 
+  /rollup-pluginutils/2.8.2:
+    resolution: {integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==}
+    dependencies:
+      estree-walker: 0.6.1
+    dev: true
+
   /rollup/0.63.5:
     resolution: {integrity: sha512-dFf8LpUNzIj3oE0vCvobX6rqOzHzLBoblyFp+3znPbjiSmSvOoK2kMKx+Fv9jYduG1rvcCfCveSgEaQHjWRF6g==}
     hasBin: true
@@ -6346,6 +6369,11 @@ packages:
   /universalify/0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
+    dev: true
+
+  /universalify/2.0.0:
+    resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
+    engines: {node: '>= 10.0.0'}
     dev: true
 
   /unset-value/1.0.0:

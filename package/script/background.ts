@@ -1,1 +1,1 @@
-console.log('template-chrome-extension');
+console.log(1);
