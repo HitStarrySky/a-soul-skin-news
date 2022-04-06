@@ -4,7 +4,10 @@ import chalk from 'chalk';
 import { resolve } from 'path';
 
 import pkg from '../../package.json';
-const pkgPaths = [resolve(__dirname, '../../package.json')];
+const pkgPaths = [
+  resolve(__dirname, '../../package.json'),
+  resolve(__dirname, '../../package/manifest.json')
+];
 
 /**
  * 修改version

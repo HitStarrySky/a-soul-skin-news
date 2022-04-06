@@ -1,6 +1,6 @@
 {
   "name": "a-soul-chrome-extension",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "a-soul-chrome-extension",
   "scripts": {
     "dev": "vite",

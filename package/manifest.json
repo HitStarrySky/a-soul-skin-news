@@ -1,15 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "TemplateChromeextension",
-  "version": "0.0.1",
-  "description": "template-chrome-extension",
+  "name": "a-soul动态小助手",
+  "version": "1.0.0",
+  "description": "a-soul-skin-news",
   "background": {
     "service_worker": "background.js"
   },
   "content_security_policy": {},
   "action": {
     "default_icon": "assets/logo.png",
-    "default_title": "template-chrome-extension",
+    "default_title": "a-soul-skin-news",
     "default_popup": "popup/popup.html"
   },
   "content_scripts": [],
@@ -21,7 +21,8 @@
   "permissions": [
     "contextMenus",
     "storage",
-    "notifications"
+    "notifications",
+    "alarms"
   ],
   "optional_permissions": [],
   "host_permissions": [

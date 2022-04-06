@@ -1,16 +1,17 @@
-## 0.0.1 (2022-04-02)
+## 0.0.1 (2022-04-06)
 
 
 ### ✨ Features | 新功能
 
-* html insert ([1c134d8](https://gitee.com/Y_onghu/template-chrome-extension/commit/1c134d8))
-* template-chrome-extension ([6a94c97](https://gitee.com/Y_onghu/template-chrome-extension/commit/6a94c97))
+* image plugin ([e15b57b](https://gitee.com/Y_onghu/a-soul/commit/e15b57b))
+* init ([3648469](https://gitee.com/Y_onghu/a-soul/commit/3648469))
+* source ([8e1f39c](https://gitee.com/Y_onghu/a-soul/commit/8e1f39c))
+* videoInfo ([d0c8719](https://gitee.com/Y_onghu/a-soul/commit/d0c8719))
 
 
 ### 🐛 Bug Fixes | Bug 修复
 
-* build ([46ff052](https://gitee.com/Y_onghu/template-chrome-extension/commit/46ff052))
-* eslint ([84155a8](https://gitee.com/Y_onghu/template-chrome-extension/commit/84155a8))
+* config ([83ed37a](https://gitee.com/Y_onghu/a-soul/commit/83ed37a))
 
 
 

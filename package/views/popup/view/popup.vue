@@ -4,7 +4,12 @@
       <img :src="cover" alt="cover" />
     </div>
     <div v-if="!userInfoLoading" class="popup-user">
-      <img :src="info.user.avatar" alt="avatar" class="popup-user-avatar" />
+      <img
+        :src="info.user.avatar"
+        alt="avatar"
+        class="popup-user-avatar"
+        @click="goBilibili"
+      />
       <svg
         t="1649167470854"
         class="popup-user-switch"
@@ -40,6 +45,7 @@
       </div>
     </div>
   </header>
+  <div class="popup-tool"></div>
   <div v-if="!videoLoading" class="popup-main-title">动态</div>
   <main v-if="!videoLoading" class="popup-main">
     <div class="popup-content">
@@ -97,6 +103,9 @@ export default defineComponent({
       handleQuery();
     };
 
+    const goBilibili = () => {
+      window.open(`https://space.bilibili.com/${uid.value}`);
+    };
     /**
      * 跳转的视频地址
      * @param item
@@ -135,6 +144,7 @@ export default defineComponent({
         .then((res) => res.json())
         .then(({ data }) => {
           videoList.value = data.list.vlist;
+          setStore({ [info.theme.skin]: data.list.vlist[0].aid });
         })
         .finally(() => {
           videoLoading.value = false;
@@ -152,7 +162,8 @@ export default defineComponent({
       userInfoLoading,
       videoLoading,
       videoList,
-      handleClick
+      handleClick,
+      goBilibili
     };
   }
 });
