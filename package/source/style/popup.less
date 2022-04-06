@@ -1,20 +1,25 @@
 @import './common.less';
 
 .popup-title {
-  width: 400px;
-  .popup-cover{
+  width: 350px;
+  height: 180px;
+  .popup-cover {
     width: 100%;
-    height: 100px;
-    img{
+    height: 80px;
+
+    img {
       width: 100%;
       opacity: 0.1;
     }
   }
-  .popup-user{
+
+  .popup-user {
     position: relative;
     width: 100%;
-    padding: 50px 0 0 20px;
-    .popup-user-avatar{
+    padding: 40px 20px 0 20px;
+    box-sizing: border-box;
+
+    .popup-user-avatar {
       position: absolute;
       left: 20px;
       top: -50%;
@@ -23,15 +28,84 @@
       border-radius: 50%;
       border: 3px solid #fff
     }
-    .popup-user-name{
-      font-size: 20px;
-      color: rgb(66, 128, 227);
+
+    .popup-user-switch {
+      position: absolute;
+      right: 30px;
+      top: -15%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .popup-user-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .popup-user-name {
+        font-size: 18px;
+        color: rgb(66, 128, 227);
+      }
+
+      .popup-user-fans {
+        font-size: 22px;
+        color: rgb(228, 32, 32);
+        font-weight: 700;
+      }
+    }
+
+    .popup-user-sign {
+      font-size: 12px;
+      margin-top: 5px;
+      color: #666;
     }
   }
 }
-
+.popup-main-title{
+  font-size: 20px;
+  color: #333;
+  font-weight: 500;
+  padding:10px 20px;
+}
 .popup-main {
-  width: 400px;
+  width: 350px;
   height: 300px;
   overflow-y: auto;
+  .popup-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    .popup-article{
+      width: 48%;
+      height: 150px;
+      cursor: pointer;
+      .popup-article-cover{
+        width: 100%;
+        height: 100px;
+        position: relative;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+        .popup-article-time{
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          padding: 2px 4px;
+          background-color: rgba(0, 0, 0, .4);
+          color: #fff;
+        }
+      }
+      .popup-article-title{
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-top: 5px;
+      }
+    }
+  }
 }

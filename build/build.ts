@@ -11,18 +11,18 @@ import { html } from './plugin/rollup-plugin-html';
 import { image } from './plugin/rollup-plugin-images';
 const buildVueBunless = () => {
   const plugins = [
-    vue({
-      isProduction: true
-    }),
-    nodeResolve({
-      extensions: ['.mjs', '.js', '.json', '.ts']
-    }),
     image({
       output: `${buildOutpath}/assets/images`,
       extensions: /\.(png|jpg|jpeg|gif|svg)$/,
       limit: 8192,
       exclude: 'node_modules/**',
       hash: true
+    }),
+    vue({
+      isProduction: true
+    }),
+    nodeResolve({
+      extensions: ['.mjs', '.js', '.json', '.ts']
     }),
     commonjs(),
     esbuild({
